@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Admin Dashboard</h2>
+  
+    <!-- Create Club -->
+    <div class="create-club">
+      <h3>Create a New Club</h3>
+      <input type="text" [(ngModel)]="newClub.name" placeholder="Club Name">
+      <input type="text" [(ngModel)]="newClub.description" placeholder="Club Description">
+      <button (click)="createClub()">Create</button>
+    </div>
+  
+    <!-- Show/Hide Clubs Button -->
+    <button (click)="toggleClubList()">{{ showClubs ? 'Hide Clubs' : 'Show All Clubs' }}</button>
+  
+    <!-- Club List -->
+    <div *ngIf="showClubs">
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" [(ngModel)]="searchQuery" (input)="filterClubs()" placeholder="Search by Club Name">
+      </div>
+  
+      <!-- List of Clubs -->
+      <div class="club-list">
+        <h3>All Clubs</h3>
+        <ul>
+          <li *ngFor="let club of filteredClubs">
+            <span style="font-weight: bold;">{{ club.name }} - {{ club.description }}</span>
+            <button (click)="confirmDeleteClub(club.id)">Delete</button>
+            <button (click)="openAssignCoordinatorDialog(club.id)">Assign Coordinator</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button (click)="logout()" class="logout-btn">Logout</button>
+  </div>
+  

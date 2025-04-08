@@ -1,0 +1,16 @@
+<nav class="p-4 shadow-md flex gap-4 bg-blue-100">
+  <button (click)="activeTab = 'myEvents'" [attr.style]="activeTab === 'myEvents' ? 'background-color: #FFE3B3' : ''">My Events</button>
+  <button (click)="activeTab = 'explore'" [attr.style]="activeTab === 'explore' ? 'background-color: #FFE3B3' : ''">Explore</button>
+  <button (click)="logout()" class="logout-btn">Logout</button>
+</nav>
+
+<div class="p-4">
+  <ng-container *ngIf="activeTab === 'myEvents'">
+    <app-my-events />
+  </ng-container>
+  <ng-container *ngIf="activeTab === 'explore'">
+    <app-explore />
+  </ng-container>
+  
+</div>
+

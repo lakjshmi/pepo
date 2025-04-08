@@ -1,0 +1,25 @@
+<div>
+    <label>Select Club:</label>
+    <select [(ngModel)]="selectedClubId">
+      <option *ngFor="let club of clubs" [value]="club.id">{{ club.name }}</option>
+    </select>
+    <button (click)="openCreateForm()">Create New Event</button>
+  </div>
+  
+  <div *ngIf="showCreateForm" class="form-container">
+    <h3>Create Event</h3>
+    <form (ngSubmit)="createEvent()">
+      <input [(ngModel)]="newEvent.name" name="name" placeholder="Event Name" required />
+      <input [(ngModel)]="newEvent.description" name="description" placeholder="Description" required />
+      <input [(ngModel)]="newEvent.eventDate" name="eventDate" type="datetime-local" required />
+      <input [(ngModel)]="newEvent.imageUrl" name="imageUrl" placeholder="Image URL" />
+      <input [(ngModel)]="newEvent.registrationFeeMembers" name="registrationFeeMembers" type="number" placeholder="Fee (Members)" />
+      <input [(ngModel)]="newEvent.registrationFeeNonMembers" name="registrationFeeNonMembers" type="number" placeholder="Fee (Non-Members)" />
+      <select [(ngModel)]="newEvent.visibility" name="visibility">
+        <option value="PUBLIC">Public</option>
+        <option value="PRIVATE">Private</option>
+      </select>
+      <button type="submit">Submit Event</button>
+    </form>
+  </div>
+  <button (click)="logout()" class="logout-btn">Logout</button>

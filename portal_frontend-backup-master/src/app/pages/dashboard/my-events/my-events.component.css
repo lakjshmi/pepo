@@ -1,0 +1,37 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 300px); /* Two columns, each 300px wide */
+  gap: 1rem;
+  justify-content: center; /* Centers the grid if items don’t fill the full width */
+  padding: 10px;
+}
+
+.grid > * { 
+  width: 100%; /* Ensures each item takes the full width of its grid cell */
+}
+
+
+.box {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-lg {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-gray-600 {
+  color: #4a5568;
+}
+
+ul{
+  list-style-type: none;
+}
+

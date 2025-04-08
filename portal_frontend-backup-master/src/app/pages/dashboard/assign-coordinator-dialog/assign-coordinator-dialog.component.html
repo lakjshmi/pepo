@@ -1,0 +1,17 @@
+<!-- Search Users -->
+<h2 *ngIf="club">Assign Coordinator for {{ club.name }}</h2>
+
+
+<input type="text" [(ngModel)]="searchQuery" (input)="onSearch()" placeholder="Search members..." />
+
+
+<ul *ngIf="searchResults.length > 0">
+    <li *ngFor="let user of searchResults">
+      {{ user.name }} - {{ user.email }}
+      <button (click)="promoteToCoordinator(user.id)">Assign</button>
+    </li>
+  </ul>
+  <p *ngIf="searchResults.length === 0 && searchQuery">No users found.</p>
+
+  <button (click)="dialogRef.close()">Close</button>
+  

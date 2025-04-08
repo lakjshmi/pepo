@@ -1,0 +1,12 @@
+<div *ngIf="loading">Loading...</div>
+
+<ul *ngIf="!loading" class="grid">
+    
+  <li *ngFor="let event of events" class="box">
+    <img *ngIf="event.imageUrl" [src]="'assets/' + event.imageUrl" alt="Event Image" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;"/>
+    <h2 class="text-lg">{{ event.name }}</h2>
+    <p class="text-sm text-gray-600">{{ event.description }}</p>
+    <p class="text-sm">📅 {{ event.eventDate | date:'medium' }}</p>
+    <p class="text-sm">🏷️ Club: {{ event.club.name }}</p>
+  </li>
+</ul>

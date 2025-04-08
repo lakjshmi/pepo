@@ -1,0 +1,114 @@
+/* Full-page gradient background */
+
+
+/* Main container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Full height of the screen */
+    width: 100%;
+    background: linear-gradient(to bottom , #142130, #00c6ff);
+    font-family: Arial, sans-serif;
+}
+
+/* Headings */
+h2, h3 {
+    color: black;
+    margin-bottom: 15px;
+}
+
+/* Input Fields */
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: black;
+}
+
+input::placeholder {
+    color: black;
+    border: #007bff;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Create Club Section */
+.create-club {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Search Bar */
+.search-bar {
+    margin-bottom: 15px;
+}
+
+.search-bar input {
+    width: 100%;
+}
+
+/* Club List */
+.club-list {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 5px;
+}
+
+.club-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.club-list li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.club-list button {
+    width: auto;
+    padding: 5px 10px;
+    font-size: 14px;
+    background: #ff4d4d;
+}
+
+.club-list button:hover {
+    background: #cc0000;
+}
+
+/* Toggle Button */
+button.toggle {
+    background: #28a745;
+}
+
+button.toggle:hover {
+    background: #218838;
+}
+
