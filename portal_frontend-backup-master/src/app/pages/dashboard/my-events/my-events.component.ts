@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AppEvent, Club } from '../../../models/Appevent';
+import { AppEvent, Club } from '../../../models/AppEvent';
 
 @Component({
   selector: 'app-my-events',
