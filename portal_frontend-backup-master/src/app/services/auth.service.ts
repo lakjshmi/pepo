@@ -11,6 +11,20 @@ import { User } from '../models/user';
 })
 export class AuthService {
   private apiUrl = environment.apiUrl; // ✅ Use environment variable
+
+  private currentUserEmail: string = '';
+
+setEmail(email: string): void {
+  this.currentUserEmail = email;
+}
+
+getEmail(): string {
+  return this.currentUserEmail;
+}
+getUserById(userId: number): Observable<User> {
+  return this.http.get<User>(`${this.apiUrl}/users/${userId}`);
+}
+
   private usersUrl = `${environment.apiUrl}/users`;
   
   
@@ -47,6 +61,8 @@ export class AuthService {
       .post(`${this.apiUrl}/users/login`, { email, password })
       .pipe(
         tap((response: any) => {
+          this.setEmail(response.email); // ⬅️ Add this line to store user's email
+
           console.log('local storage has:', localStorage);
           console.log(response);
           console.log('response', response);
@@ -106,11 +122,18 @@ export class AuthService {
   
 
   //Get user Id directly fr
+  // getUserId(): string | null {
+  //   console.log('User Id is ' + this.getLocalStorageItem('userId'));
+  //   return this.getLocalStorageItem('userId');
+  //   //return '3';
+  // }
   getUserId(): string | null {
-    console.log('User Id is ' + this.getLocalStorageItem('userId'));
-    return this.getLocalStorageItem('userId');
-    //return '3';
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem('userId');
+    }
+    return null;
   }
+  
 
   getToken(): string | null {
     return this.getLocalStorageItem('token');
