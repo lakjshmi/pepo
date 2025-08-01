@@ -1,4 +1,4 @@
-# Club Portal
+# College Club Portal
 
 A full-stack web application for managing club events and members. Built with **Angular** on the frontend and **Spring Boot** on the backend.
 
